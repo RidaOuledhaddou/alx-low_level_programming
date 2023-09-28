@@ -1,11 +1,14 @@
-#include "main.h"
-
+I#include "main.h"
 /**
- * main - check the code
- *
-*/
-
-void _puts_recursion(char *s){
-	_puts_recursion("Puts with recursion\n");
-	return 0;
+ * _print_rev_recursion - Prints a string in reverse.
+ * @s: The string to be printed.
+ */
+void _print_rev_recursion(char *s)
+{
+	if (*s)
+	{
+		_print_rev_recursion(s + 1);
+		_putchar(*s);
+	}
 }
+
