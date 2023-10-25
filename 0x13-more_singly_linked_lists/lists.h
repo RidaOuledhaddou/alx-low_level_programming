@@ -1,7 +1,11 @@
 #ifndef LISTS_H
 #define LISTS_H
 
-#include <stdio.h>
+/*
+ * Desc: Header file containing prototypes and definitions for all functions
+ * and types written in the 0x12-more_singly_linked_lists directory.
+ */
+
 #include <stdlib.h>
 
 /**
@@ -10,7 +14,7 @@
  * @next: points to the next node
  *
  * Description: singly linked list node structure
- * for alx project
+ * for ALX SWE project
  */
 typedef struct listint_s
 {
@@ -34,4 +38,4 @@ size_t print_listint_safe(const listint_t *head);
 size_t free_listint_safe(listint_t **h);
 listint_t *find_listint_loop(listint_t *head);
 
-#endif
+#endif /* LISTS_H */
