@@ -1,44 +1,39 @@
 #include "main.h"
-/**
- * argstostr - function that concatenates two strings
- * @ac: first bytes of the memory
- * @av: constant byte b
- * Return: pointer to the resulting string dests
- */
+#include <stdlib.h>
 
+/**
+ *  argstostr - concatenates all the arguments of your program.
+ *  @ac: number of arguments
+ *  @av: double pointer to arguments
+ *  Return:pointer to new string, or NULL if error
+ */
 char *argstostr(int ac, char **av)
 {
-	int i, j, z = 0;
-	int size = 0;
+	int i, j, k = 0, n = 0;
 	char *s;
 
-	if (ac == 0 || av == NULL)
+	if (ac <= 0 || av == NULL)
 		return (NULL);
 	for (i = 0; i < ac; i++)
 	{
-		j = 0;
-		while (av[i][j] != '\0')
-		{
-			size++;
-			j++;
-		}
-		size++;
+		for (j = 0; av[i][j]; j++)
+			n++;
+		n++;
 	}
-	s = malloc(size + 1);
+	n++;
+	s = malloc(n * sizeof(char));
 	if (s == NULL)
 		return (NULL);
 	for (i = 0; i < ac; i++)
 	{
-		j = 0;
-		while (av[i][j] != '\0')
+		for (j = 0; av[i][j]; j++)
 		{
-			s[z] = av[i][j];
-			j++;
-			z++;
+			s[k] = av[i][j];
+			k++;
 		}
-		s[z] = '\n';
-		z++;
+		s[k] = '\n';
+		k++;
 	}
-	s[z] = '\0';
+	s[k] = '\0';
 	return (s);
 }
