@@ -1,28 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
+ * main - main entry
+ * Description: A program that printsout all the possible combintion
+ * of three digits and they (the numbers) are seperated by a comma and space
+ * Return: 0
  */
 int main(void)
 {
-	int a, b;
+	int c;
+	int d;
+	int e = 0;
 
-	for (a = 0; a <= 8; a++)
+	while (e < 10)
 	{
-		for (b = a + 1; b <= 9; b++)
+		d = 0;
+		while (d < 10)
 		{
-			putchar(a + '0');
-			putchar(b + '0');
-			if (a < 8)
+			c = 0;
+			while (c < 10)
 			{
-				putchar(',');
-				putchar(' ');
+				if (c != d && d != e && e < d && d < c)
+				{
+					putchar('0' + e);
+					putchar('0' + d);
+					putchar('0' + c);
+
+					if (c + d + e != 9 + 8 + 7)
+					{
+						putchar(',');
+						putchar(' ');
+					}
+				}
+
+				c++;
 			}
+			d++;
 		}
+		e++;
 	}
 	putchar('\n');
 	return (0);
